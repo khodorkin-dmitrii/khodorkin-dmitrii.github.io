@@ -144,7 +144,7 @@ h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(4rem, 10vw, 8.6rem
 .map-node { padding: .55rem .8rem; }
 .node-kotlin { top: 15%; left: 12%; } .node-compose { top: 12%; right: 12%; } .node-flow { bottom: 14%; right: 10%; } .node-architecture { bottom: 14%; left: 8%; } .node-testing { top: 7%; left: 43%; }
 .between-card { display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; border: 1px solid var(--line); border-radius: .75rem; background: var(--surface); }
-.between-visual { min-height: 23rem; background: linear-gradient(90deg, transparent 45%, var(--surface) 100%), url('/assets/between-stops-rain.png') center / cover no-repeat; filter: saturate(.8) contrast(1.06); }
+.between-visual { min-height: 23rem; background: linear-gradient(90deg, transparent 45%, var(--surface) 100%), url('../assets/between-stops-rain.png') center / cover no-repeat; filter: saturate(.8) contrast(1.06); }
 .between-copy { align-self: center; padding: clamp(2rem, 5vw, 4rem); }
 .between-copy h2 { margin-bottom: 1.5rem; }
 .between-copy > p:not(.section-index) { margin-bottom: 1.5rem; color: var(--muted); line-height: 1.7; }
@@ -168,7 +168,7 @@ h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(4rem, 10vw, 8.6rem
   .project-card-reverse .project-media, .project-card-reverse .project-content { order: initial; }
   .holocron-card { grid-column: 1 / -1; }
   .handbook-map { min-height: 24rem; }
-  .between-visual { min-height: 18rem; background: linear-gradient(0deg, var(--surface), transparent 50%), url('/assets/between-stops-rain.png') center / cover no-repeat; }
+  .between-visual { min-height: 18rem; background: linear-gradient(0deg, var(--surface), transparent 50%), url('../assets/between-stops-rain.png') center / cover no-repeat; }
   .contact-grid { gap: 3rem; }
 }
 

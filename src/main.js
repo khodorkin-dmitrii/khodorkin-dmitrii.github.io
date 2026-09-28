@@ -1,5 +1,3 @@
-import './styles.css';
-
 const translations = {
   en: {
     skip: 'Skip to content', navLabel: 'Primary navigation', languageLabel: 'Language', themeLabel: 'Switch color theme',

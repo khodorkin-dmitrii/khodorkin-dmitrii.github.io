@@ -72,10 +72,10 @@ h1, h2, h3, p { margin-top: 0; }
 .rail-socials a:hover { color: var(--accent); }
 
 .content { width: min(calc(100% - var(--rail-width)), var(--content-width)); margin-left: max(var(--rail-width), calc((100vw - var(--content-width) + var(--rail-width)) / 2)); padding-inline: clamp(2rem, 4vw, 4.5rem); }
-.section { padding-block: clamp(3.25rem, 7vw, 6.25rem); border-bottom: 1px solid var(--line); }
+.section { padding-block: clamp(2.5rem, 4.5vw, 4.25rem); border-bottom: 1px solid var(--line); }
 .section-tag { display: flex; align-items: center; gap: .65rem; color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
 .section-tag span:first-child { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-.about { display: flex; min-height: min(680px, 88vh); flex-direction: column; justify-content: center; }
+.about { display: flex; min-height: min(600px, 78vh); flex-direction: column; justify-content: center; }
 .about > .section-tag { margin-bottom: clamp(2rem, 5vw, 4rem); }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(250px, .55fr); gap: clamp(2rem, 7vw, 7rem); align-items: end; }
 .availability { display: flex; align-items: center; gap: .65rem; margin-bottom: 1.4rem; color: var(--muted); font-size: .78rem; }
@@ -123,13 +123,14 @@ h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6
 .between-row { background-image: linear-gradient(90deg, color-mix(in srgb, var(--surface) 96%, transparent), var(--surface)), url('../assets/between-stops-rain.png'); background-position: center; background-size: cover; }
 
 .experience-list { border-top: 1px solid var(--line); }
-.experience-row { display: grid; grid-template-columns: 100px minmax(0, 1fr) 150px; gap: clamp(1.5rem, 4vw, 4rem); padding: 1.65rem 0; border-bottom: 1px solid var(--line); }
+.experience-row { display: grid; grid-template-columns: 100px minmax(0, 1fr) 150px; gap: clamp(1.5rem, 4vw, 4rem); padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
 .experience-date { margin: .15rem 0 0; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .7rem; white-space: nowrap; }
 .experience-company { margin-bottom: .35rem; color: var(--accent); }
 .experience-row h2 { margin-bottom: .55rem; font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 600; letter-spacing: -.035em; }
 .experience-row div > p:last-child { max-width: 740px; margin-bottom: 0; color: var(--muted); font-size: .87rem; line-height: 1.55; }
 .experience-link { align-self: start; justify-self: end; padding-bottom: .3rem; border-bottom: 1px solid var(--line-strong); font-size: .76rem; font-weight: 700; text-decoration: none; text-align: right; }
 .experience-link:hover { border-color: var(--accent); color: var(--accent); }
+.experience-product { align-self: start; justify-self: end; color: var(--muted); font-size: .72rem; font-weight: 650; text-align: right; }
 
 .footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; padding-block: 2.5rem 2rem; }
 .footer > div:first-child > p:last-child { max-width: 560px; margin-bottom: 0; color: var(--muted); font-size: .9rem; }
@@ -164,7 +165,7 @@ h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6
   .theme-toggle { width: 46px; height: 61px; border-bottom: 0; }
   .rail-socials { display: none; }
   .content { width: 100%; margin-left: 0; padding-inline: 1.15rem; }
-  .section { padding-block: 3.7rem; }
+  .section { padding-block: 3rem; }
   .about { min-height: auto; padding-top: 7.3rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about > .section-tag { margin-bottom: 2.2rem; }
@@ -180,7 +181,7 @@ h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6
   .work-row > p { grid-column: 2 / -1; }
   .work-row-links { grid-column: 3; grid-row: 1; }
   .experience-row { grid-template-columns: 84px minmax(0, 1fr); gap: 1.25rem; }
-  .experience-link { grid-column: 2; justify-self: start; }
+  .experience-link, .experience-product { grid-column: 2; justify-self: start; text-align: left; }
 }
 
 @media (max-width: 480px) {
@@ -196,7 +197,7 @@ h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6
   .work-row-links { grid-column: 2; grid-row: auto; }
   .work-row > p { grid-column: 2; }
   .experience-row { grid-template-columns: 1fr; gap: .55rem; }
-  .experience-link { grid-column: 1; }
+  .experience-link, .experience-product { grid-column: 1; }
   .footer { grid-template-columns: 1fr; }
   .footer-links { flex-wrap: wrap; }
   .copyright { grid-column: 1; }

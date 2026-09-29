@@ -93,6 +93,195 @@ function applyTheme(theme) {
 languageButtons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
 themeToggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+function startPointerEffects() {
+  const supportsPointerEffects = window.matchMedia('(pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    && window.innerWidth > 760;
+  if (!supportsPointerEffects) return;
+
+  const light = document.querySelector('#cursor-light');
+  const canvas = document.querySelector('#node-field');
+  const context = canvas.getContext('2d', { alpha: true });
+  const pointer = { x: window.innerWidth * .78, y: window.innerHeight * .22, active: false };
+  let nodes = [];
+  let cloudRoots = [];
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let pixelRatio = 1;
+
+  const cloudTerms = [
+    ['Android', 'Kotlin', 'Jetpack Compose', 'Mobile Architecture', 'Maps', 'Real-time UI', 'Kotlin Multiplatform'],
+    ['Coroutines', 'Flow', 'StateFlow', 'ViewModel', 'Material 3', 'Navigation', 'Hilt', 'Room', 'Retrofit', 'WebSockets', 'Google Maps', '2D/3D Rendering', 'Google Filament', 'Gradle', 'Android SDK', 'UI Components', 'Performance Optimization'],
+    ['Java', 'Views/XML', 'Clean Architecture', 'MVVM', 'MVI', 'Paging', 'OkHttp', 'GraphQL', 'Firebase', 'GitHub Actions', 'Maven Publishing', 'AGSL', 'React Native', 'TypeScript', 'SQLDelight', 'Koin'],
+    ['IoT', 'Smart Home', 'Geospatial', 'Fintech', 'Offline-first', 'Developer Tools']
+  ];
+
+  function createNodes() {
+    const layouts = [
+      { centerX: .62, centerY: .18, radiusX: Math.min(170, width * .12), radiusY: Math.min(105, height * .13) },
+      { centerX: .79, centerY: .42, radiusX: Math.min(250, width * .18), radiusY: Math.min(175, height * .22) },
+      { centerX: .64, centerY: .73, radiusX: Math.min(240, width * .17), radiusY: Math.min(175, height * .22) },
+      { centerX: .86, centerY: .79, radiusX: Math.min(145, width * .1), radiusY: Math.min(95, height * .12) }
+    ];
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    const nextNodes = [];
+    cloudRoots = [];
+    context.font = '600 10px Inter, Segoe UI, sans-serif';
+
+    cloudTerms.forEach((terms, cloudIndex) => {
+      const layout = layouts[cloudIndex];
+      const rootIndex = nextNodes.length;
+      cloudRoots.push(rootIndex);
+
+      terms.forEach((label, localIndex) => {
+        const progress = terms.length === 1 ? 0 : Math.sqrt(localIndex / (terms.length - 1));
+        const angle = localIndex * goldenAngle + cloudIndex * .78;
+        const rawX = width * layout.centerX + Math.cos(angle) * progress * layout.radiusX;
+        const rawY = height * layout.centerY + Math.sin(angle) * progress * layout.radiusY;
+        const labelWidth = context.measureText(label).width;
+        const anchorX = Math.max(width * .39, Math.min(width - labelWidth - 18, rawX));
+        const anchorY = Math.max(24, Math.min(height - 24, rawY));
+
+        nextNodes.push({
+          label,
+          cloudIndex,
+          parentIndex: localIndex === 0 ? null : rootIndex + Math.floor((localIndex - 1) / 2),
+          x: anchorX,
+          y: anchorY,
+          anchorX,
+          anchorY,
+          velocityX: 0,
+          velocityY: 0,
+          phase: nextNodes.length * .63 + Math.random() * 2,
+          size: localIndex === 0 ? 2.6 : 1.2 + Math.random() * 1.1
+        });
+      });
+    });
+
+    nodes = nextNodes;
+  }
+
+  function resizeCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    createNodes();
+  }
+
+  function handlePointerMove(event) {
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    pointer.active = true;
+    root.style.setProperty('--cursor-x', `${pointer.x}px`);
+    root.style.setProperty('--cursor-y', `${pointer.y}px`);
+    light.classList.add('is-visible');
+  }
+
+  function handlePointerLeave() {
+    pointer.active = false;
+    light.classList.remove('is-visible');
+  }
+
+  function draw(time) {
+    context.clearRect(0, 0, width, height);
+    const darkTheme = root.dataset.theme === 'dark';
+    const color = darkTheme ? '199, 255, 74' : '66, 105, 0';
+    const repelRadius = 175;
+
+    nodes.forEach((node) => {
+      const driftX = Math.sin(time * .00045 + node.phase) * 5;
+      const driftY = Math.cos(time * .00038 + node.phase) * 4;
+      node.velocityX += (node.anchorX + driftX - node.x) * .006;
+      node.velocityY += (node.anchorY + driftY - node.y) * .006;
+
+      if (pointer.active) {
+        const distanceX = node.x - pointer.x;
+        const distanceY = node.y - pointer.y;
+        const distance = Math.hypot(distanceX, distanceY) || 1;
+        if (distance < repelRadius) {
+          const force = (1 - distance / repelRadius) * 1.7;
+          node.velocityX += (distanceX / distance) * force;
+          node.velocityY += (distanceY / distance) * force;
+        }
+      }
+
+      node.velocityX *= .91;
+      node.velocityY *= .91;
+      node.x += node.velocityX;
+      node.y += node.velocityY;
+    });
+
+    nodes.forEach((node) => {
+      if (node.parentIndex === null) return;
+      const parent = nodes[node.parentIndex];
+      context.beginPath();
+      context.moveTo(node.x, node.y);
+      context.lineTo(parent.x, parent.y);
+      context.strokeStyle = `rgba(${color}, ${darkTheme ? .12 : .09})`;
+      context.lineWidth = .75;
+      context.stroke();
+    });
+
+    for (let firstIndex = 0; firstIndex < nodes.length; firstIndex += 1) {
+      for (let secondIndex = firstIndex + 1; secondIndex < nodes.length; secondIndex += 1) {
+        const first = nodes[firstIndex];
+        const second = nodes[secondIndex];
+        if (first.cloudIndex !== second.cloudIndex) continue;
+        const distance = Math.hypot(first.x - second.x, first.y - second.y);
+        if (distance > 108) continue;
+        context.beginPath();
+        context.moveTo(first.x, first.y);
+        context.lineTo(second.x, second.y);
+        context.strokeStyle = `rgba(${color}, ${(1 - distance / 108) * .1})`;
+        context.lineWidth = .6;
+        context.stroke();
+      }
+    }
+
+    context.save();
+    context.setLineDash([3, 9]);
+    for (let index = 1; index < cloudRoots.length; index += 1) {
+      const previousRoot = nodes[cloudRoots[index - 1]];
+      const currentRoot = nodes[cloudRoots[index]];
+      context.beginPath();
+      context.moveTo(previousRoot.x, previousRoot.y);
+      context.lineTo(currentRoot.x, currentRoot.y);
+      context.strokeStyle = `rgba(${color}, ${darkTheme ? .075 : .055})`;
+      context.lineWidth = .7;
+      context.stroke();
+    }
+    context.restore();
+
+    nodes.forEach((node) => {
+      context.beginPath();
+      context.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+      context.fillStyle = `rgba(${color}, ${darkTheme ? .5 : .34})`;
+      context.fill();
+
+      if (width >= 1050) {
+        const pointerDistance = pointer.active ? Math.hypot(node.x - pointer.x, node.y - pointer.y) : 1000;
+        const proximity = Math.max(0, 1 - pointerDistance / 240);
+        const labelAlpha = (darkTheme ? .24 : .2) + proximity * .28;
+        context.font = `${node.parentIndex === null ? 700 : 600} 10px Inter, Segoe UI, sans-serif`;
+        context.textBaseline = 'middle';
+        context.fillStyle = `rgba(${color}, ${labelAlpha})`;
+        context.fillText(node.label, node.x + 7, node.y);
+      }
+    });
+
+    window.requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('pointermove', handlePointerMove, { passive: true });
+  document.documentElement.addEventListener('mouseleave', handlePointerLeave);
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  resizeCanvas();
+  window.requestAnimationFrame(draw);
+}
+
 const navLinks = document.querySelectorAll('.rail-nav a');
 const sections = document.querySelectorAll('main > section[id]');
 const observer = new IntersectionObserver((entries) => {
@@ -107,3 +296,4 @@ const initialTheme = localStorage.getItem('portfolio-theme') || (window.matchMed
 applyLanguage(initialLanguage);
 applyTheme(initialTheme);
 document.querySelector('#year').textContent = new Date().getFullYear();
+startPointerEffects();

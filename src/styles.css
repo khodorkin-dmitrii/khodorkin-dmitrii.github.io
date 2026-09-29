@@ -90,7 +90,7 @@ h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6
 .text-action { display: inline-flex; align-items: center; gap: .45rem; }
 .text-action:hover, .inline-link:hover { border-color: var(--accent); color: var(--text); }
 .service-icon { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; }
-.service-icon-document { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.service-icon-document, .service-icon-code { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .about-facts { border-top: 1px solid var(--line); }
 .about-facts div { display: grid; grid-template-columns: 74px 1fr; gap: 1rem; align-items: baseline; padding: 1.05rem 0; border-bottom: 1px solid var(--line); }
 .about-facts strong { font-size: 1.05rem; letter-spacing: -.04em; }

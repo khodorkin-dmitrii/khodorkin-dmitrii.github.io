@@ -297,3 +297,5 @@ applyLanguage(initialLanguage);
 applyTheme(initialTheme);
 document.querySelector('#year').textContent = new Date().getFullYear();
 startPointerEffects();
+import { startPumpkinRain } from './pumpkin-rain.js';
+startPumpkinRain();

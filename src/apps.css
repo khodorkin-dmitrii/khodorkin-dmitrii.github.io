@@ -1,0 +1,24 @@
+.apps-intro > .section-tag { margin-bottom: 2rem; }
+.apps-intro h1 { max-width: 20ch; margin-bottom: 1.5rem; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -.055em; line-height: 1.05; }
+.apps-intro .lede { max-width: 740px; }
+.app-list { display: grid; gap: 1.25rem; padding-block: 2rem; border-bottom: 1px solid var(--line); }
+.app-card { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: clamp(1.5rem, 3vw, 3rem); padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.app-card h2 { margin-bottom: .8rem; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.15; }
+.app-card .card-index { color: var(--accent); }
+.app-role { margin-bottom: .5rem; font-size: .9rem; font-weight: 650; line-height: 1.5; }
+.app-period { margin-bottom: 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.app-card-body { min-width: 0; font-size: .94rem; line-height: 1.65; }
+.app-description { color: var(--muted); }
+.app-card h3 { margin-bottom: .6rem; font-size: 1rem; font-weight: 650; }
+.app-card ul { margin-block: 0 1.25rem; padding-left: 1.2rem; }
+.app-card li + li { margin-top: .65rem; }
+.app-card li::marker { color: var(--accent); }
+.app-technologies { color: var(--muted); font-size: .82rem; }
+.app-technologies strong { color: var(--text); font-weight: 600; }
+.app-card { scroll-margin-top: 90px; }
+.app-card:target { border-color: var(--accent); }
+
+@media (max-width: 760px) {
+  .apps-intro { padding-top: 6.5rem; }
+  .app-card { grid-template-columns: 1fr; }
+}

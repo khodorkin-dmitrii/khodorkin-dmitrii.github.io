@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-page-language="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Published apps Dmitrii Khodorkin contributed to as part of engineering teams, with a summary of his work on each product." />
+    <meta name="theme-color" content="#0a0d11" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="stylesheet" href="../src/styles.css" />
+    <link rel="stylesheet" href="../src/apps.css" />
+    <title>Published apps I’ve worked on - Dmitrii Khodorkin</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+    <div class="cursor-light" id="cursor-light" aria-hidden="true"></div>
+    <canvas class="node-field" id="node-field" aria-hidden="true"></canvas>
+    <div class="site-shell">
+      <aside class="rail" aria-label="Portfolio navigation" data-i18n-aria="railLabel">
+        <a class="brand" href="/#about" aria-label="Dmitrii Khodorkin - home"><img src="../assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
+        <nav class="rail-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
+          <a href="/#about"><span>01</span><strong>About</strong></a>
+          <a class="is-active" href="/#published-apps" aria-current="true"><span>02</span><strong>Published apps</strong></a>
+          <a href="/#projects"><span>03</span><strong>Projects</strong></a>
+          <a href="/#experience"><span>04</span><strong>Experience</strong></a>
+        </nav>
+        <div class="rail-bottom">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" data-i18n-aria="themeLabel">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>
+          </button>
+          <div class="rail-socials"><a href="https://github.com/khodorkin-dmitrii" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a><a href="https://www.linkedin.com/in/dmitrii-khodorkin-33268585" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a><a href="https://t.me/yavin86" target="_blank" rel="noreferrer" aria-label="Telegram">TG</a></div>
+        </div>
+      </aside>
+
+      <main id="main" class="content apps-content">
+        <section class="section apps-intro" aria-labelledby="apps-title">
+          <div class="section-tag"><span>02</span><span>Published apps</span></div>
+          <h1 id="apps-title">Published apps I’ve worked on</h1>
+          <p class="lede">A selection of published apps I’ve contributed to as part of engineering teams. These apps are published under their respective companies’ accounts. Below is a summary of my own work on each product.</p>
+          <a class="inline-link" href="/">Back to portfolio <span aria-hidden="true">↗</span></a>
+        </section>
+        <div class="app-list">
+          <article class="app-card" id="irobot-home" aria-labelledby="irobot-home-title">
+            <header class="app-card-header">
+              <p class="card-index">01 / TLM</p>
+              <h2 id="irobot-home-title">iRobot Home</h2>
+              <p class="app-role">Senior Android Developer</p>
+              <p class="app-period">2023 - 2026</p>
+            </header>
+            <div class="app-card-body">
+              <p class="app-description">A consumer robotics app for managing robotic vacuum cleaners, maps, and cleaning tasks.</p>
+              <h3>My contribution</h3>
+              <ul>
+                <li>Developed live maps, 2D/3D map interactions, map editing, and real-time robot status UI.</li>
+                <li>Owned key screens, including the main experience for multiple robots and maps and the Robot Details screen.</li>
+                <li>Built reusable Jetpack Compose components and contributed to performance, reliability, testing, and release support.</li>
+                <li>Designed and implemented two- and three-finger 3D map controls for A/B testing. Results favored the two-finger scheme, with more active use of rotation and tilt; three-finger controls saw limited use even with onboarding.</li>
+              </ul>
+              <p class="app-technologies"><strong>Technologies:</strong> Kotlin, Jetpack Compose, Coroutines/Flow, Hilt, 2D/3D rendering</p>
+              <a class="button" href="https://play.google.com/store/apps/details?id=com.irobot.home.prime" target="_blank" rel="noreferrer" aria-label="View iRobot Home on Google Play">View on Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="app-card" id="sweatcoin" aria-labelledby="sweatcoin-title">
+            <header class="app-card-header">
+              <p class="card-index">02 / Sweatcoin</p>
+              <h2 id="sweatcoin-title">Sweatcoin</h2>
+              <p class="app-role">Senior Mobile Engineer (React Native)</p>
+              <p class="app-period">2022 - 2023</p>
+            </header>
+            <div class="app-card-body">
+              <p class="app-description">A consumer health and fitness app built around everyday physical activity.</p>
+              <h3>My contribution</h3>
+              <ul>
+                <li>Delivered shared React Native features for Android and iOS, from feature planning and business logic through implementation and release support.</li>
+                <li>Reduced a complex screen’s loading time by approximately 3x by investigating network behavior with Flipper, optimizing REST requests, and parallelizing independent data loading.</li>
+                <li>Contributed reusable design-system components, code reviews, stability improvements, and engineer onboarding.</li>
+              </ul>
+              <p class="app-technologies"><strong>Technologies:</strong> React Native, TypeScript, Redux, REST APIs, GraphQL/Apollo Client, Flipper</p>
+              <a class="button" href="https://play.google.com/store/apps/details?id=in.sweatco.app" target="_blank" rel="noreferrer" aria-label="View Sweatcoin on Google Play">View on Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="app-card" id="sweat-wallet" aria-labelledby="sweat-wallet-title">
+            <header class="app-card-header">
+              <p class="card-index">03 / Sweatcoin</p>
+              <h2 id="sweat-wallet-title">Sweat Wallet</h2>
+              <p class="app-role">Senior Mobile Engineer (React Native)</p>
+              <p class="app-period">2022 - 2023</p>
+            </header>
+            <div class="app-card-body">
+              <p class="app-description">A consumer crypto wallet with a shared mobile codebase for Android and iOS.</p>
+              <h3>My contribution</h3>
+              <ul>
+                <li>Contributed to the early development of the Mia AI assistant before its public release, including text-chat UI, client-side logic, backend requests, and response handling.</li>
+                <li>Implemented features across multiple A/B-tested product iterations.</li>
+                <li>Contributed to Google Play Billing purchase flows on Android within the shared React Native codebase.</li>
+              </ul>
+              <p class="app-technologies"><strong>Technologies:</strong> React Native, TypeScript, Firebase Remote Config, A/B testing, Google Play Billing</p>
+              <a class="button" href="https://play.google.com/store/apps/details?id=com.sweatwallet" target="_blank" rel="noreferrer" aria-label="View Sweat Wallet on Google Play">View on Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="app-card" id="ready-for-sky" aria-labelledby="ready-for-sky-title">
+            <header class="app-card-header">
+              <p class="card-index">04 / Ready for Sky</p>
+              <h2 id="ready-for-sky-title">Ready for Sky / Redmond</h2>
+              <p class="app-role">Senior Android Engineer</p>
+              <p class="app-period">2021 - 2022</p>
+            </header>
+            <div class="app-card-body">
+              <p class="app-description">A multi-module Android app for the Redmond smart-device ecosystem.</p>
+              <h3>My contribution</h3>
+              <ul>
+                <li>Built a backend-driven main screen with Jetpack Compose, allowing server-configured UI changes without a new app release.</li>
+                <li>Developed smart-device pairing flows and state-heavy features alongside existing Views and RxJava code.</li>
+                <li>Used snapshot testing to validate Compose UI states and worked with QA on regression prevention.</li>
+                <li>Identified errors in period-based smart-scale graph calculations, implemented corrected logic on Android, and helped align the fix across Android and iOS.</li>
+              </ul>
+              <p class="app-technologies"><strong>Technologies:</strong> Kotlin, Jetpack Compose, RxJava, BLE, REST APIs, snapshot testing</p>
+              <a class="button" href="https://play.google.com/store/apps/details?id=ru.redmond.app" target="_blank" rel="noreferrer" aria-label="View Ready for Sky / Redmond on Google Play">View on Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="app-card" id="nuki" aria-labelledby="nuki-title">
+            <header class="app-card-header">
+              <p class="card-index">05 / Improve Digital</p>
+              <h2 id="nuki-title">Nuki Smart Lock</h2>
+              <p class="app-role">Android Developer</p>
+              <p class="app-period">During my time at Improve Digital, 2018 - 2020</p>
+            </header>
+            <div class="app-card-body">
+              <p class="app-description">A smart-lock product with mobile and wearable companion functionality.</p>
+              <h3>My contribution</h3>
+              <ul>
+                <li>Contributed to the Android app and developed companion functionality for Android Wear / Wear OS.</li>
+                <li>Also worked on smaller Android UI improvements and security-related tasks.</li>
+              </ul>
+              <p class="app-technologies"><strong>Technologies:</strong> Android SDK, Android Wear / Wear OS</p>
+              <a class="button" href="https://play.google.com/store/apps/details?id=io.nuki" target="_blank" rel="noreferrer" aria-label="View Nuki Smart Lock on Google Play">View on Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <footer class="footer"><div><p class="card-index" data-i18n="contactLabel">Contact</p><p data-i18n="contactText">For Android product work, technical leadership or collaboration.</p></div><div class="footer-links"><a href="https://www.linkedin.com/in/dmitrii-khodorkin-33268585" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/khodorkin-dmitrii" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://t.me/yavin86" target="_blank" rel="noreferrer">Telegram ↗</a></div><p class="copyright">© <span id="year"></span> Dmitrii Khodorkin</p></footer>
+      </main>
+    </div>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>

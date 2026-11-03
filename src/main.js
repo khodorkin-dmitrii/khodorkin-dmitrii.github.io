@@ -6,6 +6,13 @@ const translations = {
     cvAction: 'My CV', proofLabel: 'Professional snapshot', years: 'years in Android development',
     ownership: 'feature ownership from requirements to rollout', graphics: 'maps, rendering and touch-driven UI',
     fintech: 'white-label banking apps and POS terminal software', iotFitness: 'robot vacuums, smart appliances and fitness products',
+    publishedIntro: 'Commercial apps I’ve contributed to as part of engineering teams.',
+    allPublishedApps: 'View all contributions', viewContribution: 'My contribution', previousApps: 'Previous apps', nextApps: 'Next apps',
+    publishedIrobot: 'Robot control, live maps and cleaning tasks.',
+    publishedSweatcoin: 'Everyday physical activity and fitness.',
+    publishedWallet: 'A crypto wallet for Android and iOS.',
+    publishedSky: 'An Android app for the Redmond smart-device ecosystem.',
+    publishedNuki: 'Smart-lock mobile and wearable companion functionality.',
     projectsIntro: 'Pet projects - experiments with different stacks and technologies.',
     parcelMediaLabel: 'Open Parcel On Map on GitHub',
     parcelDescription: 'Turns a parcel journey into an animated route. I built the multi-module Compose flow, map camera behavior and lifecycle-safe animation state.',
@@ -35,6 +42,13 @@ const translations = {
     cvAction: 'Моё CV', proofLabel: 'Профессиональный профиль', years: 'лет в Android-разработке',
     ownership: 'ответственность за функции от требований до выпуска', graphics: 'карты, рендеринг и интерактивный UI',
     fintech: 'white-label банковские приложения и ПО для POS-терминалов', iotFitness: 'роботы-пылесосы, умная бытовая техника и фитнес-продукты',
+    publishedIntro: 'Коммерческие приложения, в разработке которых я участвовал в составе инженерных команд.',
+    allPublishedApps: 'Подробнее о моём вкладе', viewContribution: 'Мой вклад', previousApps: 'Предыдущие приложения', nextApps: 'Следующие приложения',
+    publishedIrobot: 'Управление роботами, карты в реальном времени и задачи уборки.',
+    publishedSweatcoin: 'Повседневная физическая активность и фитнес.',
+    publishedWallet: 'Криптокошелёк для Android и iOS.',
+    publishedSky: 'Android-приложение для экосистемы умных устройств Redmond.',
+    publishedNuki: 'Управление умным замком со смартфона и часов.',
     projectsIntro: 'Pet-проекты - эксперименты с разными стеками и технологиями.',
     parcelMediaLabel: 'Открыть Parcel On Map на GitHub',
     parcelDescription: 'Превращает путь посылки в анимированный маршрут. Я реализовал multi-module Compose flow, поведение камеры карты и lifecycle-safe состояние анимации.',
@@ -80,8 +94,8 @@ function applyLanguage(language) {
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-pressed', String(active));
   });
-  document.title = language === 'ru' ? 'Дмитрий Ходоркин - Senior Android Developer' : 'Dmitrii Khodorkin - Senior Android Developer';
-  localStorage.setItem('portfolio-language', language);
+  if (!root.dataset.pageLanguage) document.title = language === 'ru' ? 'Дмитрий Ходоркин - Senior Android Developer' : 'Dmitrii Khodorkin - Senior Android Developer';
+  if (!root.dataset.pageLanguage) localStorage.setItem('portfolio-language', language);
 }
 
 function applyTheme(theme) {
@@ -282,20 +296,60 @@ function startPointerEffects() {
   window.requestAnimationFrame(draw);
 }
 
-const navLinks = document.querySelectorAll('.rail-nav a');
+const navLinks = document.querySelectorAll('.rail-nav a[data-section]');
 const sections = document.querySelectorAll('main > section[id]');
-const observer = new IntersectionObserver((entries) => {
-  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!visible) return;
-  navLinks.forEach((link) => link.classList.toggle('is-active', link.dataset.section === visible.target.id));
-}, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.1, 0.35] });
-sections.forEach((section) => observer.observe(section));
+let navigationFramePending = false;
+function updateActiveSection() {
+  const marker = Math.max(100, window.innerHeight * .3);
+  const activeSection = Array.from(sections).reverse().find((section) => section.getBoundingClientRect().top <= marker) ?? sections[0];
+  navLinks.forEach((link) => {
+    const active = link.dataset.section === activeSection?.id;
+    link.classList.toggle('is-active', active);
+    if (active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  navigationFramePending = false;
+}
+function scheduleNavigationUpdate() {
+  if (navigationFramePending) return;
+  navigationFramePending = true;
+  window.requestAnimationFrame(updateActiveSection);
+}
+window.addEventListener('scroll', scheduleNavigationUpdate, { passive: true });
+window.addEventListener('resize', scheduleNavigationUpdate, { passive: true });
+updateActiveSection();
 
 const initialLanguage = localStorage.getItem('portfolio-language') || (navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en');
 const initialTheme = localStorage.getItem('portfolio-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-applyLanguage(initialLanguage);
+applyLanguage(root.dataset.pageLanguage || initialLanguage);
 applyTheme(initialTheme);
 document.querySelector('#year').textContent = new Date().getFullYear();
 startPointerEffects();
 import { startPumpkinRain } from './pumpkin-rain.js';
 startPumpkinRain();
+
+// Native scrolling supports touch, trackpads and keyboard focus without a carousel dependency.
+const publishedAppsList = document.querySelector('#published-apps-list');
+if (publishedAppsList) {
+  const controls = document.querySelector('.carousel-controls');
+  const previous = controls.querySelector('[data-carousel-direction="-1"]');
+  const next = controls.querySelector('[data-carousel-direction="1"]');
+  function updateCarouselControls() {
+    previous.disabled = publishedAppsList.scrollLeft <= 1;
+    next.disabled = publishedAppsList.scrollLeft + publishedAppsList.clientWidth >= publishedAppsList.scrollWidth - 1;
+  }
+  controls.hidden = false;
+  controls.querySelectorAll('button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const step = publishedAppsList.querySelector('li').getBoundingClientRect().width
+        + parseFloat(getComputedStyle(publishedAppsList).columnGap);
+      publishedAppsList.scrollBy({
+        left: Number(button.dataset.carouselDirection) * step,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+      });
+    });
+  });
+  publishedAppsList.addEventListener('scroll', updateCarouselControls, { passive: true });
+  new ResizeObserver(updateCarouselControls).observe(publishedAppsList);
+  updateCarouselControls();
+}

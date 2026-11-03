@@ -18,8 +18,9 @@
         <a class="brand" href="#about" aria-label="Dmitrii Khodorkin - home"><img src="./assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
         <nav class="rail-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
           <a href="#about" data-section="about"><span>01</span><strong>About</strong></a>
-          <a href="#projects" data-section="projects"><span>02</span><strong>Projects</strong></a>
-          <a href="#experience" data-section="experience"><span>03</span><strong>Experience</strong></a>
+          <a href="#published-apps" data-section="published-apps"><span>02</span><strong>Published apps</strong></a>
+          <a href="#projects" data-section="projects"><span>03</span><strong>Projects</strong></a>
+          <a href="#experience" data-section="experience"><span>04</span><strong>Experience</strong></a>
         </nav>
         <div class="rail-bottom">
           <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
@@ -60,8 +61,69 @@
           </div>
         </section>
 
+        <section class="section published-apps" id="published-apps" aria-labelledby="published-apps-title">
+          <div class="section-header">
+            <h2 class="section-tag" id="published-apps-title"><span>02</span><span>Published apps</span></h2>
+            <p data-i18n="publishedIntro">Commercial apps I’ve contributed to as part of engineering teams.</p>
+          </div>
+          <div class="published-apps-toolbar">
+            <a class="inline-link" href="/apps/"><span data-i18n="allPublishedApps">View all contributions</span> <span aria-hidden="true">↗</span></a>
+            <div class="carousel-controls" hidden>
+              <button class="carousel-button" type="button" data-carousel-direction="-1" aria-controls="published-apps-list" aria-label="Previous apps" data-i18n-aria="previousApps" disabled>←</button>
+              <button class="carousel-button" type="button" data-carousel-direction="1" aria-controls="published-apps-list" aria-label="Next apps" data-i18n-aria="nextApps">→</button>
+            </div>
+          </div>
+          <ul class="published-apps-list" id="published-apps-list" aria-label="Published apps">
+            <li>
+              <a class="published-app" href="/apps/#irobot-home">
+                <p class="card-index">Robotics / Live maps</p>
+                <h3>iRobot Home</h3>
+                <p class="published-app-employer">TLM · 2023 - 2026</p>
+                <p class="published-app-description" data-i18n="publishedIrobot">Robot control, live maps and cleaning tasks.</p>
+                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="published-app" href="/apps/#sweatcoin">
+                <p class="card-index">Fitness / React Native</p>
+                <h3>Sweatcoin</h3>
+                <p class="published-app-employer">Sweatcoin · 2022 - 2023</p>
+                <p class="published-app-description" data-i18n="publishedSweatcoin">Everyday physical activity and fitness.</p>
+                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="published-app" href="/apps/#sweat-wallet">
+                <p class="card-index">Wallet / React Native</p>
+                <h3>Sweat Wallet</h3>
+                <p class="published-app-employer">Sweatcoin · 2022 - 2023</p>
+                <p class="published-app-description" data-i18n="publishedWallet">A crypto wallet for Android and iOS.</p>
+                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="published-app" href="/apps/#ready-for-sky">
+                <p class="card-index">Smart home / BLE</p>
+                <h3>Ready for Sky / Redmond</h3>
+                <p class="published-app-employer">Ready for Sky · 2021 - 2022</p>
+                <p class="published-app-description" data-i18n="publishedSky">An Android app for the Redmond smart-device ecosystem.</p>
+                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="published-app" href="/apps/#nuki">
+                <p class="card-index">Smart lock / Wear OS</p>
+                <h3>Nuki Smart Lock</h3>
+                <p class="published-app-employer">Improve Digital</p>
+                <p class="published-app-description" data-i18n="publishedNuki">Smart-lock mobile and wearable companion functionality.</p>
+                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
         <section class="section projects" id="projects">
-          <div class="section-header"><div class="section-tag"><span>02</span><span>Projects</span></div><p data-i18n="projectsIntro">Pet projects - experiments with different stacks and technologies.</p></div>
+          <div class="section-header"><div class="section-tag"><span>03</span><span>Projects</span></div><p data-i18n="projectsIntro">Pet projects - experiments with different stacks and technologies.</p></div>
           <div class="project-grid">
             <article class="project-card">
               <a class="project-media" href="https://github.com/khodorkin-dmitrii/ParcelOnMap" target="_blank" rel="noreferrer" aria-label="Open Parcel On Map on GitHub" data-i18n-aria="parcelMediaLabel"><video autoplay loop muted playsinline preload="metadata"><source src="./assets/parcel-on-map.mp4" type="video/mp4" /></video><span>Android / Maps</span></a>
@@ -84,7 +146,7 @@
         </section>
 
         <section class="section experience" id="experience">
-          <div class="section-header"><div class="section-tag"><span>03</span><span>Experience</span></div><p data-i18n="experienceIntro">Product work from my CV, from mobile games and logistics to fintech, fitness and IoT.</p></div>
+          <div class="section-header"><div class="section-tag"><span>04</span><span>Experience</span></div><p data-i18n="experienceIntro">Product work from my CV, from mobile games and logistics to fintech, fitness and IoT.</p></div>
           <div class="experience-list">
             <article class="experience-row"><p class="experience-date">2023 - 2026</p><div><p class="experience-company">TLM</p><h2>Senior Android Developer</h2><p data-i18n="tlmDescription">Worked on iRobot Home: live maps, 2D/3D rendering, map editing and real-time robot state. Owned complex features from technical design through production reliability.</p></div><a class="experience-link" href="https://play.google.com/store/apps/details?id=com.irobot.home.prime" target="_blank" rel="noreferrer" aria-label="iRobot Home on Google Play">iRobot Home ↗</a></article>
             <article class="experience-row"><p class="experience-date">2022 - 2023</p><div><p class="experience-company">Sweatcoin</p><h2>Senior Mobile Engineer</h2><p data-i18n="sweatcoinDescription">Delivered cross-platform product features for Android and iOS. Reduced loading time on a complex screen by about three times through request optimization and parallel loading.</p></div><a class="experience-link" href="https://play.google.com/store/apps/details?id=in.sweatco.app" target="_blank" rel="noreferrer" aria-label="Sweatcoin on Google Play">Sweatcoin ↗</a></article>

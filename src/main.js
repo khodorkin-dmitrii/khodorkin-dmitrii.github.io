@@ -9,8 +9,7 @@ const translations = {
     publishedIntro: 'Commercial apps I’ve contributed to as part of engineering teams.',
     allPublishedApps: 'View all contributions', viewContribution: 'My contribution', previousApps: 'Previous apps', nextApps: 'Next apps',
     publishedIrobot: 'Robot control, live maps and cleaning tasks.',
-    publishedSweatcoin: 'Everyday physical activity and fitness.',
-    publishedWallet: 'A crypto wallet for Android and iOS.',
+    publishedSweatCombined: 'Everyday physical activity and fitness / A crypto wallet for Android and iOS.',
     publishedSky: 'An Android app for the Redmond smart-device ecosystem.',
     publishedNuki: 'Smart-lock mobile and wearable companion functionality.',
     projectsIntro: 'Pet projects - experiments with different stacks and technologies.',
@@ -45,8 +44,7 @@ const translations = {
     publishedIntro: 'Коммерческие приложения, в разработке которых я участвовал в составе инженерных команд.',
     allPublishedApps: 'Подробнее о моём вкладе', viewContribution: 'Мой вклад', previousApps: 'Предыдущие приложения', nextApps: 'Следующие приложения',
     publishedIrobot: 'Управление роботами, карты в реальном времени и задачи уборки.',
-    publishedSweatcoin: 'Повседневная физическая активность и фитнес.',
-    publishedWallet: 'Криптокошелёк для Android и iOS.',
+    publishedSweatCombined: 'Повседневная физическая активность и фитнес / Криптокошелёк для Android и iOS.',
     publishedSky: 'Android-приложение для экосистемы умных устройств Redmond.',
     publishedNuki: 'Управление умным замком со смартфона и часов.',
     projectsIntro: 'Pet-проекты - эксперименты с разными стеками и технологиями.',
@@ -135,7 +133,7 @@ function startPointerEffects() {
       { centerX: .62, centerY: .18, radiusX: Math.min(170, width * .12), radiusY: Math.min(105, height * .13) },
       { centerX: .79, centerY: .42, radiusX: Math.min(250, width * .18), radiusY: Math.min(175, height * .22) },
       { centerX: .64, centerY: .73, radiusX: Math.min(240, width * .17), radiusY: Math.min(175, height * .22) },
-      { centerX: .86, centerY: .79, radiusX: Math.min(145, width * .1), radiusY: Math.min(95, height * .12) }
+      { centerX: .08, centerY: .79, radiusX: Math.min(145, width * .1), radiusY: Math.min(95, height * .12) }
     ];
     const goldenAngle = Math.PI * (3 - Math.sqrt(5));
     const nextNodes = [];
@@ -153,7 +151,7 @@ function startPointerEffects() {
         const rawX = width * layout.centerX + Math.cos(angle) * progress * layout.radiusX;
         const rawY = height * layout.centerY + Math.sin(angle) * progress * layout.radiusY;
         const labelWidth = context.measureText(label).width;
-        const anchorX = Math.max(width * .39, Math.min(width - labelWidth - 18, rawX));
+        const anchorX = Math.max(18, Math.min(width - labelWidth - 18, rawX));
         const anchorY = Math.max(24, Math.min(height - 24, rawY));
 
         nextNodes.push({
@@ -301,7 +299,9 @@ const sections = document.querySelectorAll('main > section[id]');
 let navigationFramePending = false;
 function updateActiveSection() {
   const marker = Math.max(100, window.innerHeight * .3);
-  const activeSection = Array.from(sections).reverse().find((section) => section.getBoundingClientRect().top <= marker) ?? sections[0];
+  const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+  const activeSection = atPageEnd ? sections[sections.length - 1]
+    : Array.from(sections).reverse().find((section) => section.getBoundingClientRect().top <= marker) ?? sections[0];
   navLinks.forEach((link) => {
     const active = link.dataset.section === activeSection?.id;
     link.classList.toggle('is-active', active);
@@ -317,6 +317,8 @@ function scheduleNavigationUpdate() {
 }
 window.addEventListener('scroll', scheduleNavigationUpdate, { passive: true });
 window.addEventListener('resize', scheduleNavigationUpdate, { passive: true });
+window.addEventListener('load', scheduleNavigationUpdate);
+new ResizeObserver(scheduleNavigationUpdate).observe(document.querySelector('main'));
 updateActiveSection();
 
 const initialLanguage = localStorage.getItem('portfolio-language') || (navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en');

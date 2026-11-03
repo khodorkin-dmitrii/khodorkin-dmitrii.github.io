@@ -16,7 +16,7 @@ Vite prints the local URL in the terminal. The page supports English and Russian
 ## Pages
 
 - `/` - bilingual portfolio and personal projects.
-- `/apps/` - English-only overview of published commercial apps and my contributions. Linked from the home page’s Published apps carousel, where each card opens its matching contribution. Primary navigation follows About, Projects, Experience and Published apps on the home page.
+- `/apps/` - English-only overview of published commercial apps and my contributions. Linked from the home page’s Published apps carousel, where each card opens its matching contribution. Primary navigation follows About, Pet Projects, Experience and Published apps on the home page.
 
 Vite builds both HTML entry points; `dist/apps/index.html` supports direct navigation and refresh on GitHub Pages without SPA fallback rules. Both pages share styles, theme preferences and the main script. The apps page stays in English without changing the saved portfolio language.
 

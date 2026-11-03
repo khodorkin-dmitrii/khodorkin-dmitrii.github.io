@@ -18,7 +18,7 @@
         <a class="brand" href="#about" aria-label="Dmitrii Khodorkin - home"><img src="./assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
         <nav class="rail-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
           <a href="#about" data-section="about"><span>01</span><strong>About</strong></a>
-          <a href="#projects" data-section="projects"><span>02</span><strong>Projects</strong></a>
+          <a href="#projects" data-section="projects"><span>02</span><strong>Pet Projects</strong></a>
           <a href="#experience" data-section="experience"><span>03</span><strong>Experience</strong></a>
           <a href="#published-apps" data-section="published-apps"><span>04</span><strong>Published apps</strong></a>
         </nav>
@@ -62,7 +62,7 @@
         </section>
 
         <section class="section projects" id="projects">
-          <div class="section-header"><div class="section-tag"><span>02</span><span>Projects</span></div><p data-i18n="projectsIntro">Pet projects - experiments with different stacks and technologies.</p></div>
+          <div class="section-header"><div class="section-tag"><span>02</span><span>Pet Projects</span></div><p data-i18n="projectsIntro">Pet projects - experiments with different stacks and technologies.</p></div>
           <div class="project-grid">
             <article class="project-card">
               <a class="project-media" href="https://github.com/khodorkin-dmitrii/ParcelOnMap" target="_blank" rel="noreferrer" aria-label="Open Parcel On Map on GitHub" data-i18n-aria="parcelMediaLabel"><video autoplay loop muted playsinline preload="metadata"><source src="./assets/parcel-on-map.mp4" type="video/mp4" /></video><span>Android / Maps</span></a>
@@ -112,47 +112,62 @@
           <ul class="published-apps-list" id="published-apps-list" aria-label="Published apps">
             <li>
               <a class="published-app" href="/apps/#irobot-home">
-                <p class="card-index">Robotics / Live maps</p>
-                <h3>iRobot Home</h3>
-                <p class="published-app-employer">TLM · 2023 - 2026</p>
-                <p class="published-app-description" data-i18n="publishedIrobot">Robot control, live maps and cleaning tasks.</p>
-                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                <div class="published-app-background" aria-hidden="true"><img src="./assets/irobot.png" alt="" loading="lazy" decoding="async" /></div>
+                <div class="published-app-copy">
+                  <p class="card-index">Robotics / Live maps</p>
+                  <h3>iRobot Home</h3>
+                  <p class="published-app-employer">TLM · 2023 - 2026</p>
+                  <p class="published-app-description" data-i18n="publishedIrobot">Robot control, live maps and cleaning tasks.</p>
+                </div>
+                <div class="published-app-bottom">
+                  <div class="published-app-icons" aria-hidden="true"><img src="./assets/app-icons/irobot-home.png" alt="" width="52" height="52" loading="lazy" decoding="async" /></div>
+                  <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                </div>
               </a>
             </li>
             <li>
               <a class="published-app" href="/apps/#sweatcoin">
-                <p class="card-index">Fitness / React Native</p>
-                <h3>Sweatcoin</h3>
-                <p class="published-app-employer">Sweatcoin · 2022 - 2023</p>
-                <p class="published-app-description" data-i18n="publishedSweatcoin">Everyday physical activity and fitness.</p>
-                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="published-app" href="/apps/#sweat-wallet">
-                <p class="card-index">Wallet / React Native</p>
-                <h3>Sweat Wallet</h3>
-                <p class="published-app-employer">Sweatcoin · 2022 - 2023</p>
-                <p class="published-app-description" data-i18n="publishedWallet">A crypto wallet for Android and iOS.</p>
-                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                <div class="published-app-background published-app-background-cycle" aria-hidden="true"><img src="./assets/scapp.png" alt="" loading="lazy" decoding="async" /><img src="./assets/scwal.png" alt="" loading="lazy" decoding="async" /></div>
+                <div class="published-app-copy">
+                  <p class="card-index">Fitness / Wallet / React Native</p>
+                  <h3>Sweatcoin / Sweat Wallet</h3>
+                  <p class="published-app-employer">Sweatcoin · 2022 - 2023</p>
+                  <p class="published-app-description" data-i18n="publishedSweatCombined">Everyday physical activity and fitness / A crypto wallet for Android and iOS.</p>
+                </div>
+                <div class="published-app-bottom">
+                  <div class="published-app-icons" aria-hidden="true"><img src="./assets/app-icons/sweatcoin.png" alt="" width="52" height="52" loading="lazy" decoding="async" /><img src="./assets/app-icons/sweat-wallet.png" alt="" width="52" height="52" loading="lazy" decoding="async" /></div>
+                  <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                </div>
               </a>
             </li>
             <li>
               <a class="published-app" href="/apps/#ready-for-sky">
-                <p class="card-index">Smart home / BLE</p>
-                <h3>Ready for Sky / Redmond</h3>
-                <p class="published-app-employer">Ready for Sky · 2021 - 2022</p>
-                <p class="published-app-description" data-i18n="publishedSky">An Android app for the Redmond smart-device ecosystem.</p>
-                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                <div class="published-app-background" aria-hidden="true"><img src="./assets/r4s.png" alt="" loading="lazy" decoding="async" /></div>
+                <div class="published-app-copy">
+                  <p class="card-index">Smart home / BLE</p>
+                  <h3>Ready for Sky / Redmond</h3>
+                  <p class="published-app-employer">Ready for Sky · 2021 - 2022</p>
+                  <p class="published-app-description" data-i18n="publishedSky">An Android app for the Redmond smart-device ecosystem.</p>
+                </div>
+                <div class="published-app-bottom">
+                  <div class="published-app-icons" aria-hidden="true"><img src="./assets/app-icons/ready-for-sky.png" alt="" width="52" height="52" loading="lazy" decoding="async" /></div>
+                  <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                </div>
               </a>
             </li>
             <li>
               <a class="published-app" href="/apps/#nuki">
-                <p class="card-index">Smart lock / Wear OS</p>
-                <h3>Nuki Smart Lock</h3>
-                <p class="published-app-employer">Improve Digital</p>
-                <p class="published-app-description" data-i18n="publishedNuki">Smart-lock mobile and wearable companion functionality.</p>
-                <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                <div class="published-app-background" aria-hidden="true"><img src="./assets/nuki.png" alt="" loading="lazy" decoding="async" /></div>
+                <div class="published-app-copy">
+                  <p class="card-index">Smart lock / Wear OS</p>
+                  <h3>Nuki Smart Lock</h3>
+                  <p class="published-app-employer">Improve Digital</p>
+                  <p class="published-app-description" data-i18n="publishedNuki">Smart-lock mobile and wearable companion functionality.</p>
+                </div>
+                <div class="published-app-bottom">
+                  <div class="published-app-icons" aria-hidden="true"><img src="./assets/app-icons/nuki.png" alt="" width="52" height="52" loading="lazy" decoding="async" /></div>
+                  <span class="published-app-link"><span data-i18n="viewContribution">My contribution</span> <span aria-hidden="true">↗</span></span>
+                </div>
               </a>
             </li>
           </ul>

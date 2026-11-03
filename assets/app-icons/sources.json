@@ -9,7 +9,8 @@
     "processing": {
       "alpha_mask": "rounded_rectangle",
       "corner_radius_px": 64,
-      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved",
+      "scaling": "none; explicit 512x512 source and destination pixel rectangles"
     }
   },
   {

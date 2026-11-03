@@ -1,0 +1,71 @@
+[
+  {
+    "file": "irobot-home.png",
+    "google_play_url": "https://play.google.com/store/apps/details?id=com.irobot.home.prime",
+    "image_url": "https://play-lh.googleusercontent.com/8NrzZ5-Tuc1VgB7BmWeWc2zFan4gri_TUBoSUI_NPj6AMM2c_-0qlroGVR9Dd0NFsxoSX_sHzOW-WAnBHk_O=w512-h512",
+    "downloaded_on": "2026-11-03",
+    "width": 512,
+    "height": 512,
+    "processing": {
+      "alpha_mask": "rounded_rectangle",
+      "corner_radius_px": 64,
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+    }
+  },
+  {
+    "file": "sweatcoin.png",
+    "google_play_url": "https://play.google.com/store/apps/details?id=in.sweatco.app",
+    "image_url": "https://play-lh.googleusercontent.com/cxIJBJaVbeCZ9H-y-Mb2AaGJ6WfNQCRlhQrcYZlQDjRdXoKd4fwlD0JXT6iSLmkzQjVlqviGlVwrgUPQ_Rsa_g=w512-h512",
+    "downloaded_on": "2026-11-03",
+    "width": 512,
+    "height": 512,
+    "processing": {
+      "alpha_mask": "circle",
+      "center_px": [
+        256,
+        256
+      ],
+      "radius_px": 228,
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+    }
+  },
+  {
+    "file": "sweat-wallet.png",
+    "google_play_url": "https://play.google.com/store/apps/details?id=com.sweatwallet",
+    "image_url": "https://play-lh.googleusercontent.com/IcDNEDaQNo1iqyIcw3jKltPZm2dAhQrzTgOTTb6qMm_Dvi5exKWBqmZ8NO7xAq0B6xxnPJeRdF-CA7rWPK9QQA=w512-h512",
+    "downloaded_on": "2026-11-03",
+    "width": 512,
+    "height": 512,
+    "processing": {
+      "alpha_mask": "rounded_rectangle",
+      "corner_radius_px": 64,
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+    }
+  },
+  {
+    "file": "ready-for-sky.png",
+    "google_play_url": "https://play.google.com/store/apps/details?id=ru.redmond.app",
+    "image_url": "https://play-lh.googleusercontent.com/RkJIS1XUlcXY-AJJ1Wd6XjMUYAef2-MVlgrYn4cMwYxuQT1ugxuzHa-05RcritQwh7Vfdh8LrVXRyTFgHZUyGw=w512-h512",
+    "downloaded_on": "2026-11-03",
+    "width": 512,
+    "height": 512,
+    "processing": {
+      "alpha_mask": "rounded_rectangle",
+      "corner_radius_px": 64,
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+    }
+  },
+  {
+    "file": "nuki.png",
+    "google_play_url": "https://play.google.com/store/apps/details?id=io.nuki",
+    "image_url": "https://play-lh.googleusercontent.com/ud0E4lVWr1TG5qJa1FPpe7XaWZdPtThteHXHc0mAlsPBBPvV0Zxi-gwKNc-N3M9_64NmySs0R4azV01JRFrcSA=w512-h512",
+    "downloaded_on": "2026-11-03",
+    "width": 512,
+    "height": 512,
+    "processing": {
+      "alpha_mask": "rounded_rectangle",
+      "corner_radius_px": 64,
+      "antialias": "1px coverage at mask boundary; existing RGB and interior alpha preserved"
+    }
+  }
+]

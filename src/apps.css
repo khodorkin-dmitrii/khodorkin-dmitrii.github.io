@@ -29,3 +29,5 @@
   .app-card { grid-template-columns: 1fr; }
   .app-card-media { width: min(100%, 180px); justify-self: center; }
 }
+
+.google-play-icon { width: 22px; height: 22px; flex: 0 0 auto; object-fit: contain; }

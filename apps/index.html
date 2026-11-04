@@ -32,11 +32,9 @@
     <div class="site-shell">
       <aside class="rail" aria-label="Portfolio navigation" data-i18n-aria="railLabel">
         <a class="brand" href="/#about" aria-label="Dmitrii Khodorkin - home"><img src="../assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
-        <nav class="rail-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
-          <a href="/#about"><span>001</span><strong>About</strong></a>
-          <a class="is-active" href="/#published-apps" aria-current="true"><span>010</span><strong>Published apps</strong></a>
-          <a href="/#projects"><span>011</span><strong>Pet Projects</strong></a>
-          <a href="/#experience"><span>100</span><strong>Experience</strong></a>
+        <nav class="rail-nav apps-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
+          <a href="/"><strong><span class="apps-nav-arrow" aria-hidden="true">←</span> <span class="apps-nav-label" data-i18n="backToPortfolio">Back to portfolio</span></strong></a>
+          <div class="apps-nav-current" aria-current="page"><strong>Published Apps</strong></div>
         </nav>
         <div class="rail-bottom">
           <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
@@ -54,9 +52,8 @@
       <main id="main" class="content apps-content">
         <section class="section apps-intro" lang="en" aria-labelledby="apps-title">
           <div class="section-tag"><span>010</span><span>Published apps</span></div>
-          <h1 id="apps-title">Published apps I’ve worked on</h1>
+          <h1 id="apps-title">Published apps<br />I’ve worked on</h1>
           <p class="lede">A selection of published apps I’ve contributed to as part of engineering teams. These apps are published under their respective companies’ accounts. Below is a summary of my own work on each product.</p>
-          <a class="inline-link" href="/">Back to portfolio <span aria-hidden="true">↗</span></a>
         </section>
         <div class="app-list" lang="en">
           <article class="app-card" id="irobot-home" aria-labelledby="irobot-home-title">

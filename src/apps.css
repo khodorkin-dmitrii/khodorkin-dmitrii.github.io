@@ -1,3 +1,23 @@
+.apps-nav .apps-nav-label { color: inherit; font: inherit; }
+.apps-nav-current {
+  display: flex;
+  align-items: center;
+  min-height: 92px;
+  padding: 1rem 1.15rem;
+  border-inline-start: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+}
+
+@media (max-width: 760px) {
+  .rail-nav.apps-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apps-nav-current {
+    min-height: 61px;
+    padding: .35rem .4rem;
+    border-inline-start: 0;
+    border-bottom: 2px solid var(--accent);
+  }
+}
+
 .apps-intro > .section-tag { margin-bottom: 2rem; }
 .apps-intro h1 { max-width: 20ch; margin-bottom: 1.5rem; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -.055em; line-height: 1.05; }
 .apps-intro .lede { max-width: 740px; }

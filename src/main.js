@@ -32,6 +32,7 @@ const translations = {
     msteamDescription: 'Worked on embedded automotive software and map-based applications for real-time vehicle and service tracking in on-demand logistics.',
     sibersDescription: 'Built a reusable cross-platform mobile game engine and delivered multiple game variants from the shared foundation.',
     dejavooProduct: 'POS software', improveProduct: 'Banking / Smart home', msteamProduct: 'Automotive / Logistics', sibersProduct: 'Mobile games',
+    backToPortfolio: 'Back to portfolio',
     contactLabel: 'Contact', contactText: 'For Android product work, technical leadership or collaboration.'
   },
   ru: {
@@ -67,6 +68,7 @@ const translations = {
     msteamDescription: 'Работал над embedded automotive ПО и Android-приложениями с картами для отслеживания транспорта и услуг в реальном времени.',
     sibersDescription: 'Создал переиспользуемый cross-platform движок мобильных игр и выпустил на его основе несколько игровых вариантов.',
     dejavooProduct: 'ПО для POS', improveProduct: 'Банкинг / Smart home', msteamProduct: 'Авто / Логистика', sibersProduct: 'Мобильные игры',
+    backToPortfolio: 'К портфолио',
     contactLabel: 'Контакты', contactText: 'Android-продукты, техническое лидерство и совместные проекты.'
   }
 };

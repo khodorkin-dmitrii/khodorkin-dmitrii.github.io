@@ -93,7 +93,7 @@ function applyLanguage(language) {
     button.setAttribute('aria-pressed', String(active));
   });
   if (!root.dataset.pageLanguage) document.title = language === 'ru' ? 'Дмитрий Ходоркин - Senior Android Developer' : 'Dmitrii Khodorkin - Senior Android Developer';
-  if (!root.dataset.pageLanguage) localStorage.setItem('portfolio-language', language);
+  localStorage.setItem('portfolio-language', language);
 }
 
 function applyTheme(theme) {
@@ -322,7 +322,7 @@ new ResizeObserver(scheduleNavigationUpdate).observe(document.querySelector('mai
 updateActiveSection();
 
 const initialLanguage = localStorage.getItem('portfolio-language') || (navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en');
-applyLanguage(root.dataset.pageLanguage || initialLanguage);
+applyLanguage(initialLanguage);
 document.querySelector('#year').textContent = new Date().getFullYear();
 startPointerEffects();
 import { startPumpkinRain } from './pumpkin-rain.js';

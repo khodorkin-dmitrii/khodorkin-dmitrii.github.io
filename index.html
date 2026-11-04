@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Dmitrii Khodorkin - Senior Android Developer. Selected Android, Kotlin Multiplatform, real-time 3D and game projects." />
     <meta name="theme-color" content="#0a0d11" />
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem('portfolio-theme');
+        } catch {
+          // Use the system theme if browser storage is unavailable.
+        }
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f4f5f1' : '#0a0d11';
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./src/styles.css" />
     <title>Dmitrii Khodorkin - Senior Android Developer</title>

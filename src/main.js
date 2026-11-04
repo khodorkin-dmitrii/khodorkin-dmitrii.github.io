@@ -322,9 +322,7 @@ new ResizeObserver(scheduleNavigationUpdate).observe(document.querySelector('mai
 updateActiveSection();
 
 const initialLanguage = localStorage.getItem('portfolio-language') || (navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en');
-const initialTheme = localStorage.getItem('portfolio-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 applyLanguage(root.dataset.pageLanguage || initialLanguage);
-applyTheme(initialTheme);
 document.querySelector('#year').textContent = new Date().getFullYear();
 startPointerEffects();
 import { startPumpkinRain } from './pumpkin-rain.js';

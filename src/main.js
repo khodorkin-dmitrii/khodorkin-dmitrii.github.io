@@ -23,7 +23,7 @@ const translations = {
     handbookDescription: 'A bilingual practical reference for Android, Kotlin, Compose, architecture, testing and performance.',
     audioDescription: 'A native Android companion for the Handbook, designed for bilingual educational playlists, streaming playback and media controls.',
     betweenDescription: 'An atmospheric narrative game where I build reusable mini-games, animation systems and progress persistence.',
-    openProject: 'Open', experienceIntro: 'Product work from my CV, from mobile games and logistics to fintech, fitness and IoT.',
+    openProject: 'Open', experienceIntroStart: 'A brief overview of my experience. See ', experienceCvLink: 'my CV', experienceIntroEnd: ' for more detail and STAR stories.',
     tlmDescription: 'Worked on iRobot Home: live maps, 2D/3D rendering, map editing and real-time robot state. Owned complex features from technical design through production reliability.',
     sweatcoinDescription: 'Delivered cross-platform product features for Android and iOS. Reduced loading time on a complex screen by about three times through request optimization and parallel loading.',
     r4sDescription: 'Built a multi-module IoT application with backend-driven Compose UI and BLE device flows, while modernizing legacy code and introducing snapshot testing.',
@@ -32,6 +32,8 @@ const translations = {
     msteamDescription: 'Worked on embedded automotive software and map-based applications for real-time vehicle and service tracking in on-demand logistics.',
     sibersDescription: 'Built a reusable cross-platform mobile game engine and delivered multiple game variants from the shared foundation.',
     dejavooProduct: 'POS software', improveProduct: 'Banking / Smart home', msteamProduct: 'Automotive / Logistics', sibersProduct: 'Mobile games',
+    irobotDomain: 'Consumer robotics app', sweatcoinDomain: 'Health & Fitness app', walletDomain: 'Crypto wallet',
+    skyDomain: 'Smart-home app', nukiDomain: 'Smart locks / Wear OS',
     backToPortfolio: 'Back to portfolio',
     contactLabel: 'Contact', contactText: 'For Android product work, technical leadership or collaboration.'
   },
@@ -59,7 +61,7 @@ const translations = {
     handbookDescription: 'Двуязычный практический справочник по Android, Kotlin, Compose, архитектуре, тестированию и производительности.',
     audioDescription: 'Нативное Android-приложение для Handbook с двуязычными образовательными плейлистами, streaming playback и системными media controls.',
     betweenDescription: 'Атмосферная сюжетная игра, для которой я создаю переиспользуемые мини-игры, системы анимаций и сохранение прогресса.',
-    openProject: 'Открыть', experienceIntro: 'Продукты из моего CV - от мобильных игр и логистики до финтеха, фитнеса и IoT.',
+    openProject: 'Открыть', experienceIntroStart: 'Краткий обзор моего опыта. В ', experienceCvLink: 'моём CV', experienceIntroEnd: ' можно найти больше деталей и STAR-истории.',
     tlmDescription: 'Работал над iRobot Home: live maps, 2D/3D-рендеринг, редактирование карт и состояние робота в реальном времени. Вёл сложные функции от технического решения до надёжной работы в production.',
     sweatcoinDescription: 'Разрабатывал кроссплатформенные функции для Android и iOS. Примерно втрое сократил загрузку сложного экрана за счёт оптимизации запросов и параллельной загрузки.',
     r4sDescription: 'Разрабатывал multi-module IoT-приложение с backend-driven Compose UI и BLE-сценариями, обновлял legacy-код и внедрял snapshot-тестирование.',
@@ -68,6 +70,8 @@ const translations = {
     msteamDescription: 'Работал над embedded automotive ПО и Android-приложениями с картами для отслеживания транспорта и услуг в реальном времени.',
     sibersDescription: 'Создал переиспользуемый cross-platform движок мобильных игр и выпустил на его основе несколько игровых вариантов.',
     dejavooProduct: 'ПО для POS', improveProduct: 'Банкинг / Smart home', msteamProduct: 'Авто / Логистика', sibersProduct: 'Мобильные игры',
+    irobotDomain: 'Бытовая робототехника', sweatcoinDomain: 'Здоровье и фитнес', walletDomain: 'Криптокошелёк',
+    skyDomain: 'Умный дом', nukiDomain: 'Умные замки / Wear OS',
     backToPortfolio: 'К портфолио',
     contactLabel: 'Контакты', contactText: 'Android-продукты, техническое лидерство и совместные проекты.'
   }

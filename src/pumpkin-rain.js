@@ -1,4 +1,13 @@
 export function startPumpkinRain() {
+    // Local calendar dates; January and February include leap day automatically.
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+    const season = month === 10 || (month === 11 && day <= 2)
+        ? "pumpkin"
+        : month <= 2 || month === 12 || (month === 11 && day >= 3)
+            ? "snowflake" : null;
+    if (!season) return;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const canvas = document.createElement('canvas');
   canvas.className = 'pumpkin-rain';
@@ -6,14 +15,16 @@ export function startPumpkinRain() {
   document.body.append(canvas);
   const ctx = canvas.getContext('2d');
   const sprite = new Image();
-  sprite.src = new URL('../assets/pumpkin-48x48.png', import.meta.url).href;
+  sprite.src = season === "snowflake"
+    ? new URL('../assets/snowflake-48x48.png', import.meta.url).href
+    : new URL('../assets/pumpkin-48x48.png', import.meta.url).href;
   const glow = document.createElement('canvas');
   glow.width = glow.height = 128;
   const gc = glow.getContext('2d');
   const gradient = gc.createRadialGradient(64, 64, 5, 64, 64, 64);
-  gradient.addColorStop(0, 'rgba(255,218,95,.85)');
-  gradient.addColorStop(.35, 'rgba(255,184,35,.45)');
-  gradient.addColorStop(1, 'rgba(255,168,20,0)');
+  gradient.addColorStop(0, season === "snowflake" ? "rgba(205,240,255,.85)" : "rgba(255,218,95,.85)");
+  gradient.addColorStop(.35, season === "snowflake" ? "rgba(75,180,255,.45)" : "rgba(255,184,35,.45)");
+  gradient.addColorStop(1, season === "snowflake" ? "rgba(35,140,255,0)" : "rgba(255,168,20,0)");
   gc.fillStyle = gradient;
   gc.fillRect(0, 0, 128, 128);
   // Fixed slots avoid per-frame object/array allocations.

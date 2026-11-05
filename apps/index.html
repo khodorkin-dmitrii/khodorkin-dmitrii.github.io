@@ -11,10 +11,10 @@
         try {
           theme = localStorage.getItem('portfolio-theme');
         } catch {
-          // Use the system theme if browser storage is unavailable.
+          // Use the default dark theme if browser storage is unavailable.
         }
         if (theme !== 'light' && theme !== 'dark') {
-          theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          theme = 'dark';
         }
         document.documentElement.dataset.theme = theme;
         document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f4f5f1' : '#0a0d11';
@@ -32,21 +32,21 @@
     <div class="site-shell">
       <aside class="rail" aria-label="Portfolio navigation" data-i18n-aria="railLabel">
         <a class="brand" href="/#about" aria-label="Dmitrii Khodorkin - home"><img src="../assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
-        <nav class="rail-nav apps-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
-          <a href="/"><strong><span class="apps-nav-arrow" aria-hidden="true">←</span> <span class="apps-nav-label" data-i18n="backToPortfolio">Back to portfolio</span></strong></a>
-          <div class="apps-nav-current" aria-current="page"><strong>Published Apps</strong></div>
-        </nav>
-        <div class="rail-bottom">
-          <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
-            <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
-            <button class="language-button" type="button" data-language="ru" aria-pressed="false">RU</button>
-          </div>
+        <div class="rail-controls">
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" data-i18n-aria="themeLabel">
             <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
             <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>
           </button>
+          <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
+            <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+            <button class="language-button" type="button" data-language="ru" aria-pressed="false">RU</button>
+          </div>
           <div class="rail-socials"><a href="https://github.com/khodorkin-dmitrii" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a><a href="https://www.linkedin.com/in/dmitrii-khodorkin-33268585" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a><a href="https://t.me/yavin86" target="_blank" rel="noreferrer" aria-label="Telegram">TG</a></div>
         </div>
+        <nav class="rail-nav apps-nav" aria-label="Primary navigation" data-i18n-aria="navLabel">
+          <a href="/"><strong><span class="apps-nav-arrow" aria-hidden="true">←</span> <span class="apps-nav-label" data-i18n="backToPortfolio">Back to portfolio</span></strong></a>
+          <div class="apps-nav-current" aria-current="page"><strong>Published Apps</strong></div>
+        </nav>
       </aside>
 
       <main id="main" class="content apps-content">

@@ -31,12 +31,21 @@
     <canvas class="node-field" id="node-field" aria-hidden="true"></canvas>
     <div class="site-shell">
       <aside class="rail" aria-label="Portfolio navigation" data-i18n-aria="railLabel">
-        <a class="brand" href="/#about" aria-label="Dmitrii Khodorkin - home"><img src="../assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
-        <div class="rail-controls">
+        <div class="rail-profile">
+          <a class="brand" href="/#about" aria-label="Dmitrii Khodorkin - home"><img src="../assets/avatar.jpg" alt="" /><i aria-hidden="true"></i></a>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" data-i18n-aria="themeLabel">
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
-            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></svg>
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <defs><radialGradient id="theme-sun-gradient" gradientUnits="userSpaceOnUse" cx="10" cy="9" r="14"><stop stop-color="#fff3b0" /><stop offset="1" stop-color="#e9a735" /></radialGradient></defs>
+              <circle cx="12" cy="12" r="3.5" fill="url(#theme-sun-gradient)" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <defs><radialGradient id="theme-moon-gradient" cx="25%" cy="25%" r="75%"><stop stop-color="#d8dde3" /><stop offset="1" stop-color="#858e9a" /></radialGradient></defs>
+              <path fill="url(#theme-moon-gradient)" d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z" />
+            </svg>
           </button>
+        </div>
+        <div class="rail-controls">
           <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
             <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
             <button class="language-button" type="button" data-language="ru" aria-pressed="false">RU</button>

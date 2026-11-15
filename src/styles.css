@@ -71,9 +71,12 @@ h1, h2, h3, p { margin-top: 0; }
 .language-button.is-active { color: var(--text); background: color-mix(in srgb, var(--surface) 75%, transparent); }
 .theme-toggle { position: absolute; right: 2px; bottom: 2px; display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: rgb(24 32 42 / 30%); cursor: pointer; }
 .theme-toggle:hover { background-color: rgb(39 51 67 / 30%); }
+:root[data-theme='light'] .theme-toggle { background: radial-gradient(circle closest-side, rgb(255 252 244 / 78%) 30%, rgb(255 252 244 / 0%) 100%); }
+:root[data-theme='light'] .theme-toggle:hover { background: radial-gradient(circle closest-side, rgb(255 252 244 / 94%) 30%, rgb(255 252 244 / 0%) 100%); }
 .theme-icon { position: absolute; width: 20px; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; transition: opacity 160ms ease, transform 160ms ease; }
 .theme-icon-sun { stroke: url(#theme-sun-gradient); filter: drop-shadow(0 0 3px rgb(255 199 75 / 95%)) drop-shadow(0 0 6px rgb(255 173 42 / 65%)); }
 .theme-icon-sun path { fill: none; }
+.theme-icon-moon { stroke: #8994a2; stroke-width: .65; }
 .theme-icon-sun, :root[data-theme='light'] .theme-icon-moon { opacity: 1; transform: rotate(0) scale(1); }
 .theme-icon-moon, :root[data-theme='light'] .theme-icon-sun { opacity: 0; transform: rotate(-30deg) scale(.65); }
 .rail-socials { display: grid; grid-template-columns: repeat(3, 1fr); }

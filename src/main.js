@@ -302,21 +302,41 @@ function startPointerEffects() {
   window.requestAnimationFrame(draw);
 }
 
-const navLinks = document.querySelectorAll('.rail-nav a[data-section]');
+const railNav = document.querySelector('.rail-nav');
+const navLinks = Array.from(railNav.querySelectorAll('a[data-section]'));
 const sections = document.querySelectorAll('main > section[id]');
 let navigationFramePending = false;
+let previousActiveLink;
+let previousNavHeight;
+
 function updateActiveSection() {
+  navigationFramePending = false;
+  if (!navLinks.length) return;
+
   const marker = Math.max(100, window.innerHeight * .3);
   const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
   const activeSection = atPageEnd ? sections[sections.length - 1]
     : Array.from(sections).reverse().find((section) => section.getBoundingClientRect().top <= marker) ?? sections[0];
+  const activeLink = navLinks.find((link) => link.dataset.section === activeSection?.id);
   navLinks.forEach((link) => {
-    const active = link.dataset.section === activeSection?.id;
+    const active = link === activeLink;
     link.classList.toggle('is-active', active);
     if (active) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
-  navigationFramePending = false;
+
+  const navHeight = railNav.clientHeight;
+  const activeLinkNeedsCheck = activeLink !== previousActiveLink || navHeight !== previousNavHeight;
+  previousActiveLink = activeLink;
+  previousNavHeight = navHeight;
+  if (!activeLinkNeedsCheck || !activeLink || railNav.scrollHeight <= navHeight) return;
+  if (getComputedStyle(railNav).overflowY !== 'auto') return;
+
+  const { top: navTop } = railNav.getBoundingClientRect();
+  const { top, bottom } = activeLink.getBoundingClientRect();
+  const navBottom = navTop + navHeight;
+  if (top < navTop) railNav.scrollTop += top - navTop;
+  else if (bottom > navBottom) railNav.scrollTop += bottom - navBottom;
 }
 function scheduleNavigationUpdate() {
   if (navigationFramePending) return;

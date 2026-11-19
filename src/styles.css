@@ -91,9 +91,19 @@ h1, h2, h3, p { margin-top: 0; }
 .availability i { width: 7px; aspect-ratio: 1; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 12%, transparent); }
 h1 { max-width: 12ch; margin-bottom: .75rem; font-size: clamp(3.4rem, 6.6vw, 6.6rem); font-weight: 560; letter-spacing: -.07em; line-height: .88; }
 .role { margin-bottom: 1.3rem; color: var(--accent); font-size: clamp(1.15rem, 2vw, 1.55rem); font-weight: 650; }
+.work-preferences { max-width: 670px; margin-top: -.65rem; margin-bottom: 1.3rem; color: color-mix(in srgb, var(--accent) 65%, var(--muted)); font-size: .85rem; line-height: 1.6; overflow-wrap: anywhere; }
 .lede { max-width: 670px; margin-bottom: 1.75rem; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.62; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; }
-.about-contacts { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: .8rem; }
+.about-contacts { position: relative; display: grid; width: fit-content; max-width: 100%; gap: 2px; margin-top: .8rem; }
+.contact-row { display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: center; gap: .5rem; }
+.about-contacts .service-icon { width: 20px; height: 20px; }
+.about-contacts a span { overflow-wrap: anywhere; min-width: 0; }
+.contact-copy { display: grid; width: 28px; height: 28px; padding: 6px; place-items: center; border: 0; border-radius: 4px; color: var(--muted); background: transparent; cursor: pointer; }
+.contact-copy:hover { color: var(--text); background: color-mix(in srgb, var(--surface) 75%, transparent); }
+.contact-copy svg { grid-area: 1 / 1; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.contact-copy .copy-check, .contact-copy.is-copied svg:first-child { display: none; }
+.contact-copy.is-copied .copy-check { display: block; color: var(--accent); }
+.contact-copy-status { position: absolute; top: 100%; left: 0; margin-top: 3px; color: var(--muted); font-size: .7rem; }
 .about-contacts a { display: inline-flex; min-height: 28px; align-items: center; gap: .4rem; color: var(--muted); font-size: .8rem; text-decoration: none; }
 .about-contacts a:hover { color: var(--link); text-decoration: underline; }
 .button { display: inline-flex; min-height: 42px; align-items: center; gap: .45rem; padding: .65rem .9rem; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); font-size: .8rem; font-weight: 700; text-decoration: none; }

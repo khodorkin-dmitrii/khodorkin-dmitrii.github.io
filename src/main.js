@@ -2,6 +2,7 @@ const translations = {
   en: {
     skip: 'Skip to content', railLabel: 'Portfolio navigation', navLabel: 'Primary navigation', languageLabel: 'Language', themeLabel: 'Switch color theme',
     availability: 'Open to Senior Android opportunities',
+    workPreferences: 'Belgrade, Serbia · Remote / Hybrid / On-site · B2B or employment',
     summary: 'I build reliable mobile products and take complex features from technical design to production. My focus is clear architecture, responsive interfaces and measurable product behavior.',
     cvAction: 'My CV', proofLabel: 'Professional snapshot', years: 'years in Android development',
     ownership: 'feature ownership from requirements to rollout', graphics: 'maps, rendering and touch-driven UI',
@@ -36,11 +37,14 @@ const translations = {
     irobotDomain: 'Consumer robotics app', sweatcoinDomain: 'Health & Fitness app', walletDomain: 'Crypto wallet',
     skyDomain: 'Smart-home app', nukiDomain: 'Smart locks / Wear OS',
     backToPortfolio: 'Back to portfolio',
-    contactLabel: 'Contact', contactText: 'For Android product work, technical leadership or collaboration.'
+    contactLabel: 'Contact', contactText: 'For Android product work, technical leadership or collaboration.',
+    copyEmail: 'Copy email address', copyTelegram: 'Copy Telegram link',
+    contactCopied: 'Copied', contactCopyFailed: 'Could not copy. Please copy the link manually.'
   },
   ru: {
     skip: 'Перейти к содержимому', railLabel: 'Навигация по портфолио', navLabel: 'Основная навигация', languageLabel: 'Язык', themeLabel: 'Переключить цветовую тему',
     availability: 'Открыт к предложениям Senior Android Developer',
+    workPreferences: 'Белград, Сербия · Удалённо / Гибрид / В офисе · B2B или трудоустройство',
     summary: 'Создаю надёжные мобильные продукты и веду сложные функции от технического решения до production. В фокусе - понятная архитектура, отзывчивые интерфейсы и измеримое поведение продукта.',
     cvAction: 'Моё CV', proofLabel: 'Профессиональный профиль', years: 'лет в Android-разработке',
     ownership: 'ответственность за функции от требований до выпуска', graphics: 'карты, рендеринг и интерактивный UI',
@@ -75,7 +79,9 @@ const translations = {
     irobotDomain: 'Бытовая робототехника', sweatcoinDomain: 'Здоровье и фитнес', walletDomain: 'Криптокошелёк',
     skyDomain: 'Умный дом', nukiDomain: 'Умные замки / Wear OS',
     backToPortfolio: 'К портфолио',
-    contactLabel: 'Контакты', contactText: 'Android-продукты, техническое лидерство и совместные проекты.'
+    contactLabel: 'Контакты', contactText: 'Android-продукты, техническое лидерство и совместные проекты.',
+    copyEmail: 'Скопировать email', copyTelegram: 'Скопировать ссылку Telegram',
+    contactCopied: 'Скопировано', contactCopyFailed: 'Не удалось скопировать. Скопируйте ссылку вручную.'
   }
 };
 
@@ -112,6 +118,30 @@ function applyTheme(theme) {
 
 languageButtons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
 themeToggle.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+document.querySelectorAll('.contact-copy').forEach((button) => {
+  let resetTimer;
+  button.addEventListener('click', async () => {
+    const status = document.querySelector('.contact-copy-status');
+    const dictionary = translations[root.lang] ?? translations.en;
+    clearTimeout(resetTimer);
+    button.disabled = true;
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      button.classList.add('is-copied');
+      status.textContent = dictionary.contactCopied;
+    } catch {
+      button.classList.remove('is-copied');
+      status.textContent = dictionary.contactCopyFailed;
+    } finally {
+      button.disabled = false;
+    }
+    resetTimer = setTimeout(() => {
+      button.classList.remove('is-copied');
+      status.textContent = '';
+    }, 2500);
+  });
+});
 
 function startPointerEffects() {
   const supportsPointerEffects = window.matchMedia('(pointer: fine)').matches
